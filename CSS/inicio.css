@@ -76,3 +76,39 @@ body {
         transform: translateY(0);
     }
 }
+
+/* MEDIA QUERIES PARA CELULARES */
+@media (max-width: 768px) {
+    .inicio-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .inicio-container h1 {
+        font-size: 36px;
+    }
+
+    .inicio-container p {
+        font-size: 20px;
+    }
+
+    .inicio-container button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .inicio-container h1 {
+        font-size: 28px;
+    }
+
+    .inicio-container p {
+        font-size: 18px;
+    }
+
+    .inicio-container button {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+}
