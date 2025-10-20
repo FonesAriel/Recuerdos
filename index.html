@@ -1,53 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Nuestra Historia</title>
-  <link rel="icon" type="image/png" href="./IMG/aplicacion-de-tv.png">
-  <link rel="stylesheet" href="./CSS/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="./CSS/inicio.css">
 </head>
 
 <body>
-  <div class="slideshow-container">
-    <div class="slide active">
-      <img src="./IMG/shaggy_vilma.jpg" alt="Slide 1" />
-      <div class="overlay"></div>
-      <div class="caption">Hermoso Atardecer</div>
+    <div class="inicio-container" style="text-align:center; margin-top:100px;">
+        <h1>Bienvenido a Nuestra Historia</h1>
+        <p>Haz clic en el botón para entrar al sitio principal.</p>
+        <button onclick="location.href='index.html'" style="padding: 10px 20px; font-size: 16px; cursor:pointer;">
+            Entrar
+        </button>
     </div>
-
-    <div class="slide">
-      <img src="./IMG/Hermoso_Concierto.jpg" alt="Slide 2" />
-      <div class="overlay"></div>
-      <div class="caption">Un Hermoso Concierto</div>
-    </div>
-
-    <div class="slide">
-      <img src="./IMG/Abeja_Sol.jpg" alt="Slide 3" />
-      <div class="overlay"></div>
-      <div class="caption">En el Pais de las Maravillas</div>
-    </div>
-
-    <a class="prev" aria-label="Anterior">&#10094;</a>
-    <a class="next" aria-label="Siguiente">&#10095;</a>
-
-    <div class="dots-container">
-      <div class="dot active" data-index="0"></div>
-      <div class="dot" data-index="1"></div>
-      <div class="dot" data-index="2"></div>
-    </div>
-  </div>
-
-  <!-- Modal simple: clic en la imagen abre, clic otra vez / fuera / Esc cierra -->
-  <div class="image-modal" id="imageModal" aria-hidden="true">
-    <img id="modalImage" src="" alt="Imagen ampliada" />
-  </div>
-
-  <script src="./JavaScript/script.js"></script>
 </body>
 
 </html>
