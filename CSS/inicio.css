@@ -24,15 +24,15 @@ body {
 
 .inicio-container h1 {
     margin-bottom: 20px;
-    font-size: 32px;
+    font-size: 48px;
     animation: slideDown 1.5s ease forwards;
     /* Animación del título */
 }
 
 .inicio-container p {
     margin-bottom: 30px;
-    font-size: 16px;
-    color: #FFFFFF;
+    font-size: 28px;
+    color: #ffffff;
     animation: fadeIn 2s ease forwards;
 }
 
