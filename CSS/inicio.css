@@ -4,9 +4,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #000;
-    /* Fondo negro */
-    color: #fff;
+    background: url('../IMG/Space.jpg') no-repeat center center fixed; /* Ruta de tu imagen */
+    background-size: cover; /* La imagen cubre toda la pantalla */
+    color: #FFFFFF;
     /* Texto blanco */
     display: flex;
     justify-content: center;
@@ -32,14 +32,14 @@ body {
 .inicio-container p {
     margin-bottom: 30px;
     font-size: 16px;
-    color: #ccc;
+    color: #FFFFFF;
     animation: fadeIn 2s ease forwards;
 }
 
 .inicio-container button {
     background-color: #1DB954;
     /* Verde vibrante tipo Spotify */
-    color: white;
+    color: #FFFFFF;
     border: none;
     border-radius: 8px;
     padding: 12px 25px;
