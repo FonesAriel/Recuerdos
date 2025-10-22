@@ -1,114 +1,169 @@
-/* CSS Minimalista con fondo negro y animación */
+/* Variables y reset básico */
+:root {
+    --accent: #1DB954;
+    --accent-pressed: #179544;
+    --white: #ffffff;
+    --overlay: rgba(0, 0, 0, 0.54);
+    /* ajusta contraste */
+    --container-max: 520px;
+    --text-line: 1.25;
+}
 
+* {
+    box-sizing: border-box
+}
+
+html,
 body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: url('../IMG/Space.jpg') no-repeat center center fixed; /* Ruta de tu imagen */
-    background-size: cover; /* La imagen cubre toda la pantalla */
-    color: #FFFFFF;
-    /* Texto blanco */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fondo con overlay para contraste */
+.inicio-wrapper {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    justify-content: center;
+    background:
+        linear-gradient(var(--overlay), var(--overlay)),
+        url('../IMG/Space.jpg') center/cover no-repeat;
+    /* Evitar background-attachment: fixed por problemas en móviles */
+    background-attachment: scroll;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
+/* Contenedor centrado y con límites */
 .inicio-container {
+    width: min(92%, var(--container-max));
     text-align: center;
-    max-width: 400px;
-    animation: fadeIn 1.5s ease forwards;
-    /* Animación de entrada */
+    animation: fadeIn 700ms ease both;
+    color: var(--white);
+    padding: 28px;
+    border-radius: 12px;
+    /* ligero blur/efecto para destacar en móviles */
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
+/* Tamaños fluidos y accesibles con clamp() */
 .inicio-container h1 {
-    margin-bottom: 20px;
-    font-size: 48px;
-    animation: slideDown 1.5s ease forwards;
-    /* Animación del título */
+    margin: 0 0 14px 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    /* escala entre 1.75rem y 3rem según ancho de pantalla */
+    font-size: clamp(1.75rem, 6.5vw, 3rem);
+    letter-spacing: -0.02em;
+    animation: slideDown 700ms ease both;
 }
 
+/* Párrafo con buena lectura */
 .inicio-container p {
-    margin-bottom: 30px;
-    font-size: 28px;
-    color: #ffffff;
-    animation: fadeIn 2s ease forwards;
+    margin: 0 0 22px 0;
+    font-size: clamp(1rem, 3.5vw, 1.25rem);
+    line-height: var(--text-line);
+    opacity: 0.98;
 }
 
+/* Botón grande, táctil y con estado focus/active */
 .inicio-container button {
-    background-color: #1DB954;
-    /* Verde vibrante tipo Spotify */
-    color: #FFFFFF;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    appearance: none;
     border: none;
-    border-radius: 8px;
-    padding: 12px 25px;
-    font-size: 16px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeIn 2.5s ease forwards;
+    display: inline-block;
+    min-width: 160px;
+    width: auto;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    background: var(--accent);
+    color: var(--white);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    min-height: 48px;
+    /* recomendación táctil */
+    line-height: 1;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
+/* Hover/active/focus */
 .inicio-container button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(29, 185, 84, 0.5);
+    transform: translateY(-3px);
 }
 
-/* Animaciones */
+.inicio-container button:active {
+    transform: translateY(0);
+    background: var(--accent-pressed);
+}
+
+.inicio-container button:focus {
+    outline: 3px solid rgba(29, 185, 84, 0.25);
+    outline-offset: 4px;
+}
+
+/* Animaciones (ligeras) */
 @keyframes fadeIn {
-    0% {
+    from {
         opacity: 0;
+        transform: translateY(6px);
     }
 
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes slideDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* MEDIA QUERIES PARA CELULARES */
-@media (max-width: 768px) {
-    .inicio-container {
-        max-width: 90%;
-        padding: 15px;
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
     }
 
-    .inicio-container h1 {
-        font-size: 36px;
-    }
-
-    .inicio-container p {
-        font-size: 20px;
-    }
-
-    .inicio-container button {
-        padding: 10px 20px;
-        font-size: 14px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+/* MEDIA QUERIES: pulir para pantallas pequeñas (ej: A54) */
 @media (max-width: 480px) {
+    .inicio-container {
+        padding: 20px;
+        border-radius: 8px;
+    }
+
     .inicio-container h1 {
-        font-size: 28px;
+        font-size: clamp(1.5rem, 8.5vw, 2.25rem);
     }
 
     .inicio-container p {
-        font-size: 18px;
+        font-size: 0.95rem;
     }
 
+    /* Botón ancho para facilitar toque */
     .inicio-container button {
-        padding: 8px 18px;
-        font-size: 14px;
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 1.05rem;
     }
 }
+
+/* Opcional: orientación horizontal (tablets / landscape phones) */
+@media (min-width: 769px) and (max-height: 500px) {
+    .inicio-wrapper {
+        align-items: flex-start;
+        padding-top: 48px;
+    }
+}
+
+/* Si quieres un contraste todavía mayor en zonas de texto muy pequeñas,
+   puedes aumentar --overlay en :root (ej: 0.64) */

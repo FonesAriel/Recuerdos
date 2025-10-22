@@ -3,19 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Página de Inicio</title>
     <link rel="icon" type="image/png" href="./IMG/aplicacion-de-tv.png">
     <link rel="stylesheet" href="./CSS/inicio.css">
 </head>
 
 <body>
-    <div class="inicio-container" style="text-align:center; margin-top:100px;">
-        <h1>Nuestra Aventura</h1>
-        <p>¿Lista para revivir nuestros mejores momentos en Fortnite?</p>
-        <button onclick="location.href='imagenes.html'" style="padding: 10px 20px; font-size: 16px; cursor:pointer;">
-            Entrar
-        </button>
-    </div>
+    <main class="inicio-wrapper">
+        <div class="inicio-container" role="main" aria-labelledby="titulo-aventura">
+            <h1 id="titulo-aventura">Nuestra Aventura</h1>
+            <p>¿Lista para revivir nuestros mejores momentos en Fortnite?</p>
+            <button id="entrar-btn" onclick="location.href='imagenes.html'">Entrar</button>
+        </div>
+    </main>
+
+    <!-- Si quieres, aquí puedes añadir un pequeño script para mejorar la experiencia en
+    navegadores muy antiguos o para analytics. -->
 </body>
 
 </html>
